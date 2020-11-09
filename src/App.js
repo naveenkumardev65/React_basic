@@ -22,10 +22,19 @@ const App = (props) => {
   //   otherState: "Some thing"
   // }
 
+  const nameChangeHandler = (event) =>{
+    setPersonState({
+      persons : [
+        { name : event.target.value , age : 21},
+        { name : "Vel" , age : 21},
+        { name : "Murugan" , age : 20},
+      ]
+    })
+  }
   
 
-  const switchNameHandler = (e) => {
-    console.log("clicked")
+  const switchNameHandler = () => {
+    
     
     setPersonState({
       persons : [
@@ -36,12 +45,19 @@ const App = (props) => {
     })
   }
 
+  const style = {
+    backgroundColor : 'white',
+    padding : '8px',
+    border : '1px solid blue',
+    font : 'inherit',
+    cursor : 'pointer'
+  }
 
     return (
       <div className="App">
         <h2>Hello World!!!!!</h2>
-        <button onClick={switchNameHandler}>Switch Name</button>
-        <Person name={personState.persons[0].name} age={personState.persons[0].age}/>
+        <button onClick={switchNameHandler} style={style}>Switch Name</button>
+        <Person name={personState.persons[0].name} age={personState.persons[0].age} clicked={nameChangeHandler} />
         <Person name={personState.persons[1].name} age={personState.persons[1].age}>My Hobbie is : Cricket</Person>
         <Person name={personState.persons[2].name} age={personState.persons[2].age}/>
       </div>
