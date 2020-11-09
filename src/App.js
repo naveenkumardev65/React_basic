@@ -12,10 +12,21 @@ const App = (props) => {
       {name : 'Rajan'}
     ]
   })
+
+  const switchNameHandler = () => {
+    setName({
+      persons : [
+        {name : 'Vetrivel'},
+        {name : 'Kumaravel'},
+        {name : 'Rathnavel'}
+      ]
+    })
+  }
   
     return (
       <div className="App">
         <UserInput />
+        <button onClick={switchNameHandler}>Switch Name</button>
         <UserOutput name={name.persons[0].name}/>
         <UserOutput name={name.persons[1].name}/>
         <UserOutput name={name.persons[2].name}/>
