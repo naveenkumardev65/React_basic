@@ -5,14 +5,20 @@ import UserInput from './UserInput/UserInput'
 import UserOutput from './UserOutput/UserOutput'
 
 const App = (props) => {
-  
+  const [name,setName] = useState({
+    persons : [
+      {name : 'Vel Murugan'},
+      {name : 'Kumar'},
+      {name : 'Rajan'}
+    ]
+  })
   
     return (
       <div className="App">
         <UserInput />
-        <UserOutput name="Murugan"/>
-        <UserOutput name="Naveen"/>
-        <UserOutput name="Ravin"/>
+        <UserOutput name={name.persons[0].name}/>
+        <UserOutput name={name.persons[1].name}/>
+        <UserOutput name={name.persons[2].name}/>
       </div>
     )
   
