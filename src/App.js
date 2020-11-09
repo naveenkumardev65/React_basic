@@ -6,12 +6,8 @@ import UserOutput from './UserOutput/UserOutput'
 
 const App = (props) => {
   const [name,setName] = useState({
-    persons : [
-      {name : 'Vel Murugan'},
-      {name : 'Kumar'},
-      {name : 'Rajan'}
-    ]
-  })
+      userName : "Murugan"
+    })
 
   const switchNameHandler = (event) => {
     setName({
@@ -25,11 +21,11 @@ const App = (props) => {
   
     return (
       <div className="App">
-        <UserInput clicked={switchNameHandler} />
+        <UserInput name={name.userName} clicked={switchNameHandler} />
         {/* <button onClick={switchNameHandler}>Switch Name</button> */}
-        <UserOutput  name={name.persons[0].name}/>
-        <UserOutput name={name.persons[1].name}/>
-        <UserOutput name={name.persons[2].name}/>
+        <UserOutput  name={name.userName}/>
+        <UserOutput name={name.userName}/>
+        <UserOutput name={name.userName}/>
       </div>
     )
   
