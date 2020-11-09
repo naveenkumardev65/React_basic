@@ -25,14 +25,18 @@ class App extends Component {
     })
   }
 
-  ToggleHandler = () => {
+  togglePersonHandler = () => {
     const doesShow = this.state.showPersons
     this.setState({
       showPersons: !doesShow
     })
   }
 
-
+  deletePersonHandler = (personIndex) => {
+    const persons = this.state.persons;
+    persons.splice(personIndex,1)
+    this.setState({ persons : persons})
+  }
 
   render() {
     const style = {
@@ -41,28 +45,28 @@ class App extends Component {
       padding: '10px',
       font: 'inherit'
     }
+    
     let persons = null
     if (this.state.showPersons) {
       persons = (
         <div>
-          <Person
-            name={this.state.persons[0].name}
-            age={this.state.persons[0].age}
-            clicked={this.switchNameHandler} />
-          <Person
-            name={this.state.persons[1].name}
-            age={this.state.persons[1].age}>My Hobbie is : Cricket</Person>
-          <Person
-            name={this.state.persons[2].name}
-            age={this.state.persons[2].age}
-          />
+          {
+            this.state.persons.map((person,index)=>{
+              return <Person
+              click={() => this.deletePersonHandler(index)}
+              key={index} 
+              name={person.name}
+              age={person.age}
+              />
+            })
+          }
         </div>
       )
     }
     return (
       <div className="App">
         <h2>Hello World!!!!!</h2>
-        <button style={style} onClick={this.ToggleHandler}>Toggle Name</button>
+        <button style={style} onClick={this.togglePersonHandler}>Toggle Name</button>
         {persons}
       </div>
     )
