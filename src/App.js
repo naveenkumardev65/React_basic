@@ -32,37 +32,38 @@ class App extends Component {
     })
   }
 
-  
+
 
   render() {
     const style = {
-      backgroundColor : 'white',
-      border : '1px solid blue',
-      padding : '10px',
-      font : 'inherit'
-
+      backgroundColor: 'white',
+      border: '1px solid blue',
+      padding: '10px',
+      font: 'inherit'
+    }
+    let persons = null
+    if (this.state.showPersons) {
+      persons = (
+        <div>
+          <Person
+            name={this.state.persons[0].name}
+            age={this.state.persons[0].age}
+            clicked={this.switchNameHandler} />
+          <Person
+            name={this.state.persons[1].name}
+            age={this.state.persons[1].age}>My Hobbie is : Cricket</Person>
+          <Person
+            name={this.state.persons[2].name}
+            age={this.state.persons[2].age}
+          />
+        </div>
+      )
     }
     return (
       <div className="App">
         <h2>Hello World!!!!!</h2>
         <button style={style} onClick={this.ToggleHandler}>Toggle Name</button>
-        { this.state.showPersons === true ?
-          <div>
-            <Person
-              name={this.state.persons[0].name}
-              age={this.state.persons[0].age}
-              clicked={this.switchNameHandler} />
-            <Person
-              name={this.state.persons[1].name}
-              age={this.state.persons[1].age}>My Hobbie is : Cricket</Person>
-            <Person
-              name={this.state.persons[2].name}
-              age={this.state.persons[2].age} 
-               />
-          </div>
-          : null
-        }
-
+        {persons}
       </div>
     )
   }
