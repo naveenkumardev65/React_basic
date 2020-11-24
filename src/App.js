@@ -1,3 +1,4 @@
+import { CallMerge } from '@material-ui/icons';
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person'
@@ -31,6 +32,7 @@ class App extends Component {
 
   togglePersonHandler = () => {
     const doesShow = this.state.showPersons
+    // console.log(this.state.persons.length)
     this.setState({
       showPersons: !doesShow
     })
@@ -44,7 +46,8 @@ class App extends Component {
 
   render() {
     const style = {
-      backgroundColor: 'white',
+      backgroundColor: 'green',
+      color:'white',
       border: '1px solid blue',
       padding: '10px',
       font: 'inherit'
@@ -67,10 +70,22 @@ class App extends Component {
           }
         </div>
       )
+      style.backgroundColor = "red"
+
     }
+    let classes=[];
+    
+    if(this.state.persons.length <=2){
+      classes.push('red');
+    }
+    if(this.state.persons.length <=1){
+      classes.push('bold');
+    }
+    
     return (
       <div className="App">
         <h2>Hello World!!!!!</h2>
+        <p className={classes.join(' ')}>It working now!!!!</p>
         <button style={style} onClick={this.togglePersonHandler}>Toggle Name</button>
         {persons}
       </div>
