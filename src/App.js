@@ -2,6 +2,8 @@ import { CallMerge } from '@material-ui/icons';
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person'
+import Redium from 'radium'
+import { lightGreen } from '@material-ui/core/colors';
 
 class App extends Component {
   state = {
@@ -50,7 +52,11 @@ class App extends Component {
       color:'white',
       border: '1px solid blue',
       padding: '10px',
-      font: 'inherit'
+      font: 'inherit',
+      ':hover':{
+        backgroundColor:'lightGreen',
+        color:'black'
+      }
     }
 
     let persons = null
@@ -71,6 +77,10 @@ class App extends Component {
         </div>
       )
       style.backgroundColor = "red"
+      style[':hover']= {
+        backgroundColor:'salmon',
+        color:'black'
+      }
 
     }
     let classes=[];
@@ -95,5 +105,5 @@ class App extends Component {
 
 }
 
-export default App
+export default Redium(App)
 
