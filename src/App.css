@@ -10,3 +10,16 @@
   font-weight: bold;
 }
 
+.button {
+  background-color: green;
+  color: white;
+  border: 1px solid blue;
+  padding: 10px;
+  font: inherit;
+
+}
+
+  /* &:hover {
+    background-color:${props => props.alt ? 'salmon':'lightgreen'};
+    color:black;
+  } */
